@@ -1,0 +1,10 @@
+import random
+
+valor1 = random.randint(0, 10)
+
+while True:
+    numUsuario = int(input("Prueba suerte, escribe un número del 0 al 10: "))
+    if numUsuario == valor1:
+        print("¡Has acertado!, la respuesta correcta era: ", numUsuario, "ENHORABUENA")
+    elif numUsuario != valor1 :
+        print("Has fallado, el número correcto era: ", valor1)
