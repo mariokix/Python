@@ -1,0 +1,39 @@
+import numpy as np
+
+#Definimos la función "notas suspendidas" para encontrar los alumnos que suspendieron cada asignatura.
+
+def notas_suspendidas(notas):
+    asignaturas = ["Latín", "Inglés", "Castellano", "Francés"]
+    notas = np.array(notas)
+    suspendidos = np.where(notas < 5)
+    asignaturas_suspendidas = np.zeros(len(asignaturas))
+    for _, j in zip(*suspendidos):
+        asignaturas_suspendidas[j] += 1
+    print("Alumnos que suspendieron:")
+    for i, susp in enumerate(asignaturas_suspendidas):
+        if susp > 0:
+            print("{0} se ha suspendido por {1} alumnos".format(asignaturas[i], int(susp)))
+
+#Definimos la función "media_notas" para realizar la media de notas de cada alumno.
+
+def media_notas(notas):
+    notas = np.array(notas)
+    media = np.mean(notas, axis=1)
+    print("Media de notas de cada alumno:")
+    for i, m in enumerate(media):
+        print("El alumno {0} ha tenido una nota media de: {1:.2f}".format(i + 1, m))
+    return media
+
+#Definimos la función alumnos_aprobados para enccontrar los alumnos que aprobaron el curso.
+
+def alumnos_aprobados(notas):
+    media = media_notas(notas)
+    aprobados = np.where(media >= 5)
+    print("Los alumnos que han aprobado el curso son:")
+    for i in aprobados[0]:
+        print("Alumno {0}".format(i + 1))
+
+notas = np.array([[8,8,9,4], [7,6,7,2], [10,7,8,9], [4,4,3,2], [9,8,9,6]])
+notas_suspendidas(notas)
+media_notas(notas)
+alumnos_aprobados(notas)
