@@ -1,0 +1,9 @@
+import mimodulo
+print(mimodulo.fibonacci(10))
+from mimodulo import doblar
+print(doblar(7))
+from mimodulo import triplicar as triple
+print(triple(5))
+import sys
+sys.path
+$ python mimoduloexec.py
