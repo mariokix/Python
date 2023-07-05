@@ -1,0 +1,33 @@
+#Definimos la clase padre PERSONA.
+class PERSONA ():
+    def __init__(self, nombre, apellido, nacionalidad):
+        self.nombre = nombre
+        self.apellido = apellido
+        self.nacionalidad = nacionalidad
+
+    def saludar():
+        print("¡Hola!")
+
+#Definimos la subclase ITALIANO.
+class ITALIANO (PERSONA):
+    def __init__(self, nombre, apellido, idioma_principal):
+        nacionalidad = "italiana"
+        super().__init__(nombre, apellido, nacionalidad)
+        self.idioma_principal = idioma_principal
+
+    def persona_italiana(nombre, apellido, nacionalidad, idioma_principal):
+        print("Bonjorno! Mi nombre es", nombre, apellido, "soy de nacionalidad", nacionalidad, "y mi idioma principal es", idioma_principal)
+
+#Definimos función "saludar" para crear con los datos recibidos un objeto de la clase ITALIANO.
+def saludar():
+    nombre = input("¿Cuál es tu nombre?: ")
+    apellido = input("¿Cuál es tu apellido?: ")
+    nacionalidad = "italiana"
+    idioma_principal = "italiano."
+    persona1 = ITALIANO(nombre, apellido, idioma_principal)
+    persona1.persona_italiana
+    ITALIANO.persona_italiana(nombre, apellido, nacionalidad, idioma_principal)
+
+#Ejecutamos método saludar de clase PERSONA y la función saludar.
+PERSONA.saludar()
+saludar()
