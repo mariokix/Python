@@ -1,0 +1,51 @@
+#El programa solicita introducir un número entero positivo y lo almacena en la variable num_ent.
+
+#Función para comprobar los números primos.
+def num_prim(num_ent):
+    for i in range(2, int(num_ent)):
+        if int(num_ent) % i == 0:
+            print("El número", num_ent, "no es primo.")
+            return False
+    print("El número", num_ent, "es primo.")
+    return True
+
+#Función para comprobar si es un número.
+def es_numero(n):
+    respuesta = True
+    try:
+        float(n)
+    except ValueError:
+        respuesta = False
+    return respuesta
+
+#Función para comprobar si es un número entero.
+def es_entero(n):
+    respuesta = True
+    try:
+        int(n)
+    except ValueError:
+        respuesta = False
+    return respuesta
+
+numero_valido = False
+
+#Bucle while para hacer las distintas comprobaciones al número introducido.
+while numero_valido == False:
+    num_ent = input("Introduce un número entero positivo: ")
+#Si el valor introducido no es un número, un número entero o un número entero positivo, devuelve los siguientes mensajes.
+    if (es_numero(num_ent) == False):
+        print("El dato introducido no es un número. Por favor vuelva a intentarlo.")
+    elif (es_entero(num_ent) == False):
+        print("No ha introducido un número entero. Por favor, vuelva a intentarlo.")
+    elif (int(num_ent) <= 0) :
+        print("No ha introducido un número entero positivo. Por favor, vuelva a intentarlo")
+    elif (int(num_ent) == 1) :
+        print("El número", num_ent, "no es primo.")
+        break
+#Si el valor introducido es un número entero positivo, usamos la función que lo recibe y comprueba si es primo o no. La función devuelve un mensaje que informa al usuario del resultado.
+    elif (int(num_ent) > 0) :
+        num_prim(num_ent)
+        break
+    else:
+        numero_valido = True
+        break
