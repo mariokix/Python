@@ -1,0 +1,22 @@
+# Bucles while
+i = 1
+suma = 0
+while i <= 10:
+    suma = suma + i
+    i = i + 1
+print("La suma de los 10 primeros números naturales vale ", suma)
+
+# Bucles for
+lista_marcas = ["Apple", "Android", "Microsoft"]
+for marcas in lista_marcas:
+    print(marcas)
+
+# Para iterar secuencias de números usamos función range()
+j = 1
+suma1 = 0
+for j in range(1,10,2): #El 2 del final determina que va de 2 en 2.
+    print(j)
+    suma1 = suma1 + j
+print (suma1)
+for j in range(5):
+    print(str(j) * j)
