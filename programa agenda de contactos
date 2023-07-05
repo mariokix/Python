@@ -1,0 +1,26 @@
+#Definimos un diccionario vacío para almacenar los contactos.
+agenda = {}
+
+#Creamos la función contactos para definir las características de la agenda.
+def contactos ():
+    while True:
+        nombre = input("Escriba el nombre del contacto que desee guardar: ")
+        if nombre not in agenda:
+            número_telf = input("Escriba el número del contacto que desee guardar: ")
+            agenda[nombre] = número_telf
+            print("Número registrado correctamente.")
+            def respuesta2 ():
+                respuesta1 = input("¿Desea CONTINUAR o desea SALIR del programa?: ")
+                if respuesta1 == "CONTINUAR":
+                    pass
+                elif respuesta1 == "SALIR":
+                    print(agenda)
+                    quit()
+                else:
+                    print("No hemos logrado entender su respuesta. Repítala, por favor.")  
+                    respuesta2()
+            respuesta2()
+        elif nombre in agenda:
+            print("Nombre repetido. Por favor, vuelve a intentarlo.")
+            contactos()
+contactos()
