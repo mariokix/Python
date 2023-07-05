@@ -1,0 +1,12 @@
+precio_nike = 40
+precio_adidas = 35
+dinero_disponible = 37
+print("Tengo {} euros.".format(dinero_disponible))
+if (precio_adidas <= dinero_disponible):
+    print("Adidas cuesta menos de {} euros.".format(dinero_disponible))
+    print("Puedo comprar Adidas")
+print("Voy a seguir mirando")
+if (precio_nike >= dinero_disponible):
+    print("Nike cuesta más de {} euros.".format(dinero_disponible))
+    print("No puedo comprar Nike")
+print("Me voy de aquí")
