@@ -1,0 +1,38 @@
+import numpy as np
+import pandas as pd
+from pandas import Series, DataFrame
+
+#Creamos una serie de una lista de números y la nombramos serieA, después creamos una serie de un array de números llamada serieB.
+
+serieA= (3,5,2,9,6,4)
+serieB= Series([9,12,10,14,13,2])
+
+#Creamos un bucle que encuentra los números que son múltiples de 3 de la serieA.
+
+for num in serieA:
+    if num % 3 == 0:
+        print(f"{num} es múltiplo de 3.")
+
+#Creamos un dataframe combinando las serieA y serieB y le asignamos un nombre al índice.
+
+df1 = DataFrame({'serieA' : serieA, 
+                'serieB' : serieB})
+print(df1)
+
+#Creamos un bucle que obtiene los elementos comunes en ambas series.
+
+for num in serieB:
+    if num in serieA:
+        print(f"{num} es un elemento común en ambas series.")
+
+#Creamos un bucle que obtiene los elementos de la serieA que no están en la serieB.
+
+for elem in serieB:
+    if elem not in serieA:
+        print(elem)
+
+#Convertimos la serieC en un dataframe de siete filas y cinco columnas.
+
+serieC = pd.Series(np.random.randint(1, 10, 35))
+df2 = pd.DataFrame(serieC.values.reshape(7,5))
+print(df2)
