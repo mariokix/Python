@@ -1,0 +1,11 @@
+calificaciones = ["10", "notable", None, "8", "6"]
+suma = n = 0
+for nota in calificaciones:
+    if nota is None:
+        continue
+    elif not nota.isnumeric():
+        continue
+    else:
+        suma = suma + float(nota)
+        n = n + 1
+    print("La nota media es", (suma/n))
