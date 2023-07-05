@@ -1,0 +1,41 @@
+import random
+
+#Creamos la variable lista_ganadora para contener los números aleatorios.
+lista_ganadora = (random.randint(0, 100) for i in range(15))
+
+#Convertimos la lista en tupla.
+tupla_ganadora = tuple(lista_ganadora)
+
+#Creamos la función numeros_aleatorios para definir los números ganadores de la loteria.
+def numeros_aleatorios ():
+    premio = 15 + ((tupla_ganadora.count(intento_1)-1) * 5)
+    print("Los números ganadores son: ", tupla_ganadora)
+    print("El número premiado más pequeño es: ", min(tupla_ganadora)," y el más grande es: ", max(tupla_ganadora))
+    if intento_1 in tupla_ganadora:
+        print("¡Felicidades! Su número:", intento_1, "se encuentra dentro de la lista de ganadores y además se ha repetido", tupla_ganadora.count(intento_1)-1, "veces.\nHa ganado un total de", premio,"€")
+        quit()
+    elif tupla_ganadora != intento_1:
+        def respuesta ():
+            respuesta1 = input("Lo sentimos. Su número no ha resultado premiado. ¿Desea volver a intentarlo?")
+            if respuesta1 == "Si":
+                pass
+            elif respuesta1 == "No":
+                quit()
+            else:
+                print("No hemos logrado entender su respuesta. Repítala, por favor.")
+                respuesta()
+        respuesta()
+    
+        
+#Creamos un bucle while para ejecutar la función.
+while True:
+    try: 
+        intento_1 = int(input("Introduce un número entero positivo del 0 al 100: "))
+        if intento_1 >= 0 :
+            numeros_aleatorios()
+        elif intento_1 < 0 :
+            print("El número introducido es negativo. Introduce un número positivo.")
+            False
+        pass
+    except ValueError:
+            print("Oh Oh, eso no es un número. Introduce un número...")
