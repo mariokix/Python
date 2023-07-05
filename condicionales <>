@@ -1,0 +1,13 @@
+precio_nike = 20
+precio_adidas = 38
+dinero_disponible = 37
+print("Tengo {} euros.".format(dinero_disponible))
+if precio_adidas <= dinero_disponible:
+    # si se cumple la condición 1, ejecuta este bloque
+    print("Me voy a comprar Adidas")
+elif precio_nike <= dinero_disponible:
+    # si no, se cumple la condición 2, ejecuta este bloque
+    print("Voy a comprar Nike")
+else:
+    #si no se cumple ninguna, ejecuta este bloque
+    print("Me voy a mi casa derrotado :-(")
