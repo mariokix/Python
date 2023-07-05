@@ -1,0 +1,17 @@
+import numpy as np
+from itertools import product
+
+#Creamos un array de 4 dimensiones
+array4d = np.array([[[[12,14,16]], [[13,15,17]]], [[[11,13,15]], [[14,16,18]]]])
+print(array4d)
+
+#Hacemos que el programa sume los elementos en función de los dos últimos ejes.
+suma4d = np.sum(array4d, axis= 3)
+print(suma4d)
+
+#Creamos una serie de vectores
+vectores = [['a', 'b'], [1, 2], [10, 12], ['c', 'd']]
+
+#Recorremos los elementos de cada vector creando un producto cartesiano.
+for elem in product(*vectores):
+    print(elem)
