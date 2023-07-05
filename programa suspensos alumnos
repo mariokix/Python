@@ -1,0 +1,62 @@
+#Definimos funcion para mostrar cuantos alumnos suspendieron cada asignatura.
+def imprimir_materias_suspendidas(calificaciones):
+    calificacion_minima = 7
+    asignaturas_suspensas = {}
+    for alumno in calificaciones:
+        for asignatura_con_calificacion in calificaciones[alumno]:
+            asignatura = asignatura_con_calificacion["asignatura"]
+            calificacion = asignatura_con_calificacion["calificacion"]
+            if asignatura not in asignaturas_suspensas:
+                asignaturas_suspensas[asignatura] = 0
+            if calificacion < calificacion_minima:
+                asignaturas_suspensas[asignatura] += 1
+    for asignatura_suspensa in asignaturas_suspensas:
+        cuenta = asignaturas_suspensas[asignatura_suspensa]
+        print(f"{asignatura_suspensa} se ha suspendido por {cuenta} alumno(s)")
+
+#Definimos funcion para almacenar la media de cada alumno.
+def obtener_alumnos_con_media(calificaciones):
+    sumas = {}
+    for alumno in calificaciones:
+        for asignatura_con_calificacion in calificaciones[alumno]:
+            calificacion = asignatura_con_calificacion["calificacion"]
+            if alumno not in sumas:
+                sumas[alumno] = {"suma": 0, "cuenta": 0}
+            sumas[alumno]["suma"] += calificacion
+            sumas[alumno]["cuenta"] += 1
+    return sumas
+
+#Definimos funcion para mostrar la media de cada alumno.
+def imprimir_media(calificaciones):
+    sumas = obtener_alumnos_con_media(calificaciones)
+    for alumno in sumas:
+        suma = sumas[alumno]["suma"]
+        cuenta = sumas[alumno]["cuenta"]
+        media = suma/cuenta
+        print(f"El {alumno} ha obtenido una media de {media}")
+
+#Definimos función para mostrar los alumnos que han aprobado el curso.
+def imprimir_aprobados(calificaciones):
+    sumas = obtener_alumnos_con_media(calificaciones)
+    media_minima = 5
+    for alumno in sumas:
+        suma = sumas[alumno]["suma"]
+        cuenta = sumas[alumno]["cuenta"]
+        media = suma/cuenta
+        if media > media_minima:
+            print(f"El {alumno} ha aprobado el curso.")
+
+#Definimos función principal en la que se almacena la matriz con las notas y asignaturas de cada alumno.
+def main():
+    calificaciones = {
+        "Alumno 1": [{"asignatura": "Latin", "calificacion": 8}, {"asignatura": "Castellano", "calificacion": 8}, {"asignatura": "Francés", "calificacion": 9}, {"asignatura": "Inglés", "calificacion": 4}],
+        "Alumno 2": [{"asignatura": "Latin", "calificacion": 7}, {"asignatura": "Castellano", "calificacion": 6}, {"asignatura": "Francés", "calificacion": 7}, {"asignatura": "Inglés", "calificacion": 2}],
+        "Alumno 3": [{"asignatura": "Latin", "calificacion": 10}, {"asignatura": "Castellano", "calificacion": 7}, {"asignatura": "Francés", "calificacion": 8}, {"asignatura": "Inglés", "calificacion": 9}],
+        "Alumno 4": [{"asignatura": "Latin", "calificacion": 4}, {"asignatura": "Castellano", "calificacion": 4}, {"asignatura": "Francés", "calificacion": 3}, {"asignatura": "Inglés", "calificacion": 2}],
+        "Alumno 5": [{"asignatura": "Latin", "calificacion": 9}, {"asignatura": "Castellano", "calificacion": 8}, {"asignatura": "Francés", "calificacion": 9}, {"asignatura": "Inglés", "calificacion": 6}],
+    }
+    imprimir_materias_suspendidas(calificaciones)
+    imprimir_media(calificaciones)
+    imprimir_aprobados(calificaciones)
+
+main()
