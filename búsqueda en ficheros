@@ -1,0 +1,22 @@
+import os
+DIR_U09_aux = os.path.join(".", "U09_aux")
+nombre_fichero = os.path.join(DIR_U09_aux, "lorem_ipsum.txt")
+f = open(nombre_fichero, "r")
+lineas = f.readlines()
+print(lineas)
+f.close()
+
+f = open(nombre_fichero, "r")
+for linea in f:
+    print (linea)
+f.close()
+
+f_in = open(nombre_fichero, "r")
+f_out = open("resultado.txt", "w")
+for linea in f_in:
+    palabras = linea.split()
+    n_palabras = len(palabras)
+    f_out.write(str(n_palabras))
+    f_out.write("\n")
+f_in.close()
+f_out.close()
