@@ -1,0 +1,16 @@
+import random
+def numeros_aleatorios ():
+    if numero == number2:
+        print("ENHORABUENA, HAS GANADO")
+    elif numero != number2:
+        print("Ohh, prueba otra vez")
+            
+while True:
+    try: 
+        number2 = int(input("Prueba suerte: "))
+        numero = random.randint(0,10)
+        numeros_aleatorios()
+        print("El número al azar es: ", numero)
+        pass
+    except ValueError:
+        print("Oh Oh, eso no es un número. Introduce un número...")
